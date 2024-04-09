@@ -4,7 +4,6 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 function ResetPassword() {
-  const [user, setUser] = useState([]);
   const [password, setPassword] = useState();
   const navigate = useNavigate();
   const { id, token } = useParams();

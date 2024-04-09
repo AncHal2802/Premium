@@ -34,10 +34,6 @@ const AdminPolls = () => {
     }
   };
 
-  const calculateAverageVotes = (votes, totalOptions) => {
-    return totalOptions > 0 ? (votes / totalOptions).toFixed(2) : 0;
-  };
-
   return (
     <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around' }}>
       {polls.map(poll => (
@@ -57,13 +53,13 @@ const AdminPolls = () => {
           <p style={{ margin: 0, marginBottom: '8px' }}><strong>Question:</strong> {poll.question}</p>
           <p style={{ margin: 0, marginBottom: '8px' }}><strong>Total Votes:</strong> {poll.votes}</p>
           
-          {/* Display options and their vote counts along with average votes */}
+          {/* Display options and their vote counts */}
           <div style={{ marginTop: '10px' }}>
             <strong>Options:</strong>
             <ul>
               {poll.options.map((option, index) => (
                 <li key={index}>
-                  {option.text} - Votes: {option.votes} (Average: {calculateAverageVotes(option.votes, poll.options.length)})
+                  {option.text} - Votes: {option.votes}
                 </li>
               ))}
             </ul>
